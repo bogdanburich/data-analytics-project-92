@@ -34,15 +34,16 @@ select sum(p.price * s.quantity) / count (sales_id) as avg_income
 from sales s
 left join products p on s.product_id = p.product_id
 )
-select e.first_name || ' ' || e.last_name as seller,
+select s.sales_person_id as id,
+	   e.first_name || ' ' || e.last_name as name,
 	   floor(sum(s.quantity * p.price) / count(sales_id)) as average_income
 from employees e
 left join sales s on e.employee_id = s.sales_person_id
 left join products p on p.product_id = s.product_id
 left join avg_income ai on true
-group by 1, avg_income 
+group by 1, 2, avg_income
 having (sum(s.quantity * p.price) / count(sales_id)) < ai.avg_income
-order by 2 desc
+order by 3
 
 -- Третий отчет содержит информацию о продажах по дням недели. Каждая запись одержит ФИО продавца, день недели и среднюю сумму продаж.
 
