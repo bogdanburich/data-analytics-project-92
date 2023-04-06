@@ -54,7 +54,8 @@ from employees e
 join sales s on e.employee_id = s.sales_person_id
 left join products p on p.product_id = s.product_id
 group by 1, 2, extract(isodow from s.sale_date) 
-order by extract(isodow from s.sale_date)
+--order by extract(isodow from s.sale_date)
+order by 2, 1
 
 
 -- Анализ покупателей
