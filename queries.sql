@@ -1,5 +1,5 @@
 -- Первый отчет в виде таблицы из трех колонок - данных о продавце, суммарной выручке с проданных товаров и количестве проведенных сделок.
-select e.first_name || ' ' || e.last_name as seller,
+select e.first_name || ' ' || e.last_name as name,
 	   sum(s.quantity * p.price) as income,
 	   count(s.sales_id) as operations
 from employees e
