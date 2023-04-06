@@ -7,7 +7,7 @@ left join sales s on e.employee_id = s.sales_person_id
 left join products p on p.product_id = s.product_id
 group by 1
 having count(s.sales_id) > 0
-order by 2 desc
+order by 3 desc
 
 -- Проверяем, что сумма продаж по всем продавцам совпадает с общей суммой продаж
 select sum(s.quantity * p.price)
