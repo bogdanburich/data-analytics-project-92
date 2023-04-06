@@ -63,8 +63,8 @@ order by extract(isodow from s.sale_date)
 
 select
 	   case when c.age <= 15 then '10-15'
-			when c.age between 16 and 25 then '16-25'
-			when c.age between 26 and 40 then '26-40'
+			when c.age between 16 and 24 then '16-25'
+			when c.age between 25 and 39 then '26-40'
 			else '40+'
 		end as age_category,
 		count(*) as count
