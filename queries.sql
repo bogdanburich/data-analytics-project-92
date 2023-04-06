@@ -36,7 +36,7 @@ left join products p on s.product_id = p.product_id
 )
 select s.sales_person_id as id,
 	   e.first_name || ' ' || e.last_name as name,
-	   floor(sum(s.quantity * p.price) / count(sales_id)) as average_income
+	   (sum(s.quantity * p.price) / count(sales_id))::integer as average_income
 from employees e
 left join sales s on e.employee_id = s.sales_person_id
 left join products p on p.product_id = s.product_id
