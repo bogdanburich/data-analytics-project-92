@@ -19,7 +19,7 @@ left join products p on s.product_id = p.product_id
 
 -- Второй отчет содержит информацию о продавцах, чьи продажи меньше среднего уровня продаж по всем продавцам. Таблица отсортирована по продажам по убыванию.
 
--- считаем средний чек по всем продавцам
+-- считаем средний чек по всем продавцамs
 with avg_income as (
 select sum(p.price * s.quantity) / count (sales_id) as avg_income
 from sales s
