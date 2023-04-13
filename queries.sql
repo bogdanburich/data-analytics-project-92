@@ -14,7 +14,7 @@ limit 10
 select sum(s.quantity * p.price)
 from sales s
 left join products p on s.product_id = p.product_id
-> 26716587615.7600
+-- 	> 26716587615.7600
 
 
 -- Второй отчет содержит информацию о продавцах, чьи продажи меньше среднего уровня продаж по всем продавцам. Таблица отсортирована по продажам по убыванию.
@@ -27,7 +27,7 @@ left join products p on s.product_id = p.product_id
 )
 select *
 from avg_income
-> 267165.876157600000
+-- > 267165.876157600000
 
 with avg_income as (
 select sum(p.price * s.quantity) / count (sales_id) as avg_income
